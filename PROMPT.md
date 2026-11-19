@@ -136,7 +136,7 @@ Before you give me the file, check it:
 - `sync_ok` must be true (`sync_error_ms` under 45). If it's false, don't send the file. Run Step 3 again, then render again.
 - Look at the `check_sheet` image. The hook must be readable, my face must be clear, and the captions must be in the lower middle. Fix anything wrong and render again.
 
-Then give me the file, plus this one line: "Song is lined up, video sound is off, warm look is on. Post it as a Reel and use the song's real audio."
+Then give me the file, plus this one line: "Song is lined up, video sound is off, warm look is on. Post it as a Reel. Your song is already in it, so don't add music on top."
 
 ## Step 8: Next video
 
