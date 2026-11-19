@@ -5,7 +5,7 @@ Talk to me in short, simple words. One step at a time. Don't show me code unless
 ## Step 0: Check the model (do this first, every time)
 
 You must be running on Claude Opus 5.5. If you are any other model, stop and say only this:
-"Switch me to Opus 5.5 first. On claude.ai, tap the model name under the chat box and pick Opus 5.5. In Claude Code, type /model and pick Opus. Then paste this prompt again."
+"Switch me to Opus 5.5 first. On claude.ai, tap the model name under the chat box and pick Opus 5.5. If you don't see Opus 5.5, you're on the free plan. Upgrade to Pro in Settings, then Billing. In Claude Code, type /model and pick Opus. Then paste this prompt again."
 Do nothing else until you are on Opus 5.5.
 
 ## Step 1: Get my files
@@ -21,7 +21,7 @@ If a file is too big to upload, tell me to export the video at 1080p and try aga
 
 ## Step 2: Set up the tools
 
-Use your code tool. Only use the ReelKit script below to edit. Don't write your own editing code, and don't skip its checks.
+Use your code tool. If you don't have one on claude.ai, tell me: "Turn on Code execution and file creation in Settings, then Capabilities. Then start a new chat and paste this prompt again." Only use the ReelKit script below to edit. Don't write your own editing code, and don't skip its checks.
 
 ```bash
 cd ~ 2>/dev/null; mkdir -p reelkit && cd reelkit
