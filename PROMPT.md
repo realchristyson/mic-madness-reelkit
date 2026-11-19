@@ -23,14 +23,13 @@ If a file is too big to upload, tell me to export the video at 1080p and try aga
 
 Use your code tool. If you don't have one on claude.ai, tell me: "Turn on Code execution and file creation in Settings, then Capabilities. Then start a new chat and paste this prompt again." Only use the ReelKit script below to edit. Don't write your own editing code, and don't skip its checks.
 
-```bash
-cd ~ 2>/dev/null; mkdir -p reelkit && cd reelkit
-curl -sL -o reelkit.py https://github.com/realchristyson/mic-madness-reelkit/releases/latest/download/reelkit.py \
-  || curl -sL -o reelkit.py https://raw.githubusercontent.com/realchristyson/mic-madness-reelkit/main/reelkit.py
-pip install -q onnxruntime numpy pillow 2>&1 | tail -1
-which ffmpeg >/dev/null || pip install -q imageio-ffmpeg
-python3 reelkit.py check
-```
+Run this:
+    cd ~ 2>/dev/null; mkdir -p reelkit && cd reelkit
+    curl -sL -o reelkit.py https://github.com/realchristyson/mic-madness-reelkit/releases/latest/download/reelkit.py \
+      || curl -sL -o reelkit.py https://raw.githubusercontent.com/realchristyson/mic-madness-reelkit/main/reelkit.py
+    pip install -q onnxruntime numpy pillow 2>&1 | tail -1
+    which ffmpeg >/dev/null || pip install -q imageio-ffmpeg
+    python3 reelkit.py check
 
 - On claude.ai, my uploads are in `/mnt/user-data/uploads/`. Save finished files to `/mnt/user-data/outputs/` so I can download them.
 - In Claude Code, my files are wherever I say. Save finished files in the same folder as my video.
@@ -39,9 +38,8 @@ python3 reelkit.py check
 
 ## Step 3: Line up the song
 
-```bash
-python3 reelkit.py sync --video "VIDEO" --song "SONG"
-```
+Run this:
+    python3 reelkit.py sync --video "VIDEO" --song "SONG"
 (add `--near SECONDS` if I told you where the video starts in the song)
 
 What the status means:
@@ -52,9 +50,8 @@ What the status means:
 
 ## Step 4: Time my lyrics
 
-```bash
-python3 reelkit.py captions --video "VIDEO" --song "SONG" --offset OFFSET --lyrics lyrics.txt
-```
+Run this:
+    python3 reelkit.py captions --video "VIDEO" --song "SONG" --offset OFFSET --lyrics lyrics.txt
 
 Read the `timeline` it prints and check it against my lyrics. The words should be in the same order as my lyrics, and spread across the video.
 - `ok`: keep going.
@@ -117,9 +114,8 @@ Show me the 3 hooks like this and ask me to pick one (or write my own):
 
 ## Step 6: Show me the 3 font choices
 
-```bash
-python3 reelkit.py preview --video "VIDEO" --hook "MY PICKED HOOK 🔥" --captions CAPTIONS.json --outdir OUTPUT_FOLDER
-```
+Run this:
+    python3 reelkit.py preview --video "VIDEO" --hook "MY PICKED HOOK 🔥" --captions CAPTIONS.json --outdir OUTPUT_FOLDER
 
 This makes `font_options.png`: the same frame of my video, warm look on, with my hook in font A (CLEAN), B (HEAVY), and C (ROUNDED), plus a sample caption. Show me that image. On claude.ai, show it in the chat. In Claude Code, open it on my screen (`open font_options.png` on a Mac).
 
@@ -129,10 +125,9 @@ Ask: "Which font: A, B, or C?"
 
 ## Step 7: Make the reel
 
-```bash
-python3 reelkit.py render --video "VIDEO" --song "SONG" --offset OFFSET --hook "MY HOOK 🔥" \
-  --font A --captions CAPTIONS.json --pos POSITION --out "OUTPUT_FOLDER/SONGNAME_reel.mp4"
-```
+Run this:
+    python3 reelkit.py render --video "VIDEO" --song "SONG" --offset OFFSET --hook "MY HOOK 🔥" \
+      --font A --captions CAPTIONS.json --pos POSITION --out "OUTPUT_FOLDER/SONGNAME_reel.mp4"
 
 This lines up my song, mutes the video's own sound, adds the warm look last (under the text, so the white box stays pure white), adds the hook for the whole video and the lyric captions, and makes a 1080-wide reel.
 
